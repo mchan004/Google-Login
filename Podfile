@@ -7,6 +7,9 @@ target 'googlelogin' do
 
   # Pods for googlelogin
   pod 'Google/SignIn'  
-
+  
+  pod 'FacebookCore'
+  pod 'FacebookLogin'
+  pod 'FacebookShare'
 
 end

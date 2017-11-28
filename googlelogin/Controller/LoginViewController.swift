@@ -9,6 +9,8 @@
 import UIKit
 import Google
 import GoogleSignIn
+import FBSDKCoreKit
+import FBSDKLoginKit
 
 class LoginViewController: UIViewController {
     
@@ -19,7 +21,7 @@ class LoginViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         checkLoginGoogle()
-        
+        checkLoginFacebook()
         
         
         setupGoogleLogin()
@@ -37,6 +39,12 @@ class LoginViewController: UIViewController {
         GIDSignIn.sharedInstance().delegate = self
     }
     
+    func checkLoginFacebook() {
+        if FBSDKAccessToken.current() != nil {
+            self.performSegue(withIdentifier: "Logged", sender: self)
+        }
+    }
+    
     func checkLoginGoogle() {
         if let data = defaults.data(forKey: "User"), let u = NSKeyedUnarchiver.unarchiveObject(with: data) as? User {
             user = u
@@ -47,10 +55,13 @@ class LoginViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destViewController: HomeViewController = segue.destination as! HomeViewController
-        destViewController.user = user
+        destViewController.user = self.user
     }
 }
 
+//////////
+//Google//
+//////////
 extension LoginViewController: GIDSignInUIDelegate, GIDSignInDelegate {
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
         if (error == nil) {
@@ -75,6 +86,21 @@ extension LoginViewController: GIDSignInUIDelegate, GIDSignInDelegate {
         } else {
             print("\(error.localizedDescription)")
         }
+    }
+    
+}
+
+
+////////////
+//Facebook//
+////////////
+extension LoginViewController: FBSDKLoginButtonDelegate {
+    func loginButton(_ loginButton: FBSDKLoginButton!, didCompleteWith result: FBSDKLoginManagerLoginResult!, error: Error!) {
+        checkLoginFacebook()
+    }
+    
+    func loginButtonDidLogOut(_ loginButton: FBSDKLoginButton!) {
+        
     }
     
 }
