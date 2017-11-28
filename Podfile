@@ -12,4 +12,7 @@ target 'googlelogin' do
   pod 'FacebookLogin'
   pod 'FacebookShare'
 
+  pod 'TwitterKit'
+
+
 end
