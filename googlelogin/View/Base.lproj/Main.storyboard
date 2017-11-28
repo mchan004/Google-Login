@@ -36,7 +36,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Login" id="pZC-RX-DK1"/>
                     <connections>
-                        <segue destination="aOd-HV-B30" kind="show" identifier="logged" id="HFV-CW-WCf"/>
+                        <segue destination="aOd-HV-B30" kind="show" identifier="Logged" id="HFV-CW-WCf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -90,17 +90,20 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FPH-dC-13d"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Home" id="Fud-Yv-sAP"/>
+                    <navigationItem key="navigationItem" title="Home" id="Fud-Yv-sAP">
+                        <barButtonItem key="leftBarButtonItem" title="Logout" id="uqT-gp-cbb"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="imageAvatar" destination="ZXE-Ta-ZDM" id="9eb-fS-DBz"/>
                         <outlet property="labelAge" destination="rYm-QX-E32" id="hYh-rl-Jwi"/>
                         <outlet property="labelEmail" destination="vjB-FO-8mD" id="VlK-Vc-cJb"/>
                         <outlet property="labelName" destination="YUO-ha-OsQ" id="dTh-xa-LtH"/>
+                        <segue destination="XJM-FC-Ymy" kind="presentation" identifier="Logout" id="jIB-OE-4Ig"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C1S-QD-3Jg" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="912" y="80"/>
+            <point key="canvasLocation" x="1238" y="80"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Bsu-DV-h0A">
@@ -118,7 +121,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V1r-04-1Ug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-388" y="80"/>
+            <point key="canvasLocation" x="-330" y="80"/>
         </scene>
     </scenes>
 </document>

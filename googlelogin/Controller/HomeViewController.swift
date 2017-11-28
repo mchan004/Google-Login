@@ -15,13 +15,16 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var labelEmail: UILabel!
     @IBOutlet weak var labelAge: UILabel!
     
-    
+    let defaults = UserDefaults.standard
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        
-        
+    }
+    
+    func handleLogout() {
+        defaults.removeObject(forKey: "User")
+        performSegue(withIdentifier: "Logout", sender: nil)
     }
     
     var user: User? {
