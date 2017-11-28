@@ -11,6 +11,7 @@ import Google
 import GoogleSignIn
 import FBSDKCoreKit
 import FBSDKLoginKit
+import TwitterKit
 
 class LoginViewController: UIViewController {
     
@@ -23,8 +24,20 @@ class LoginViewController: UIViewController {
         checkLoginGoogle()
         checkLoginFacebook()
         
-        
         setupGoogleLogin()
+        
+        
+        let logInButton = TWTRLogInButton { (session, error) in
+            if (session != nil) {
+                print("signed in as \(session?.userName)");
+            } else {
+                print("error: \(error?.localizedDescription)");
+            }
+        }
+        
+        logInButton.center = self.view.center
+        self.view.addSubview(logInButton)
+        
     }
 
     
