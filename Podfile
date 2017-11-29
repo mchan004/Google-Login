@@ -14,5 +14,9 @@ target 'googlelogin' do
 
   pod 'TwitterKit'
 
+  pod 'Firebase/Core'
+  pod 'Firebase/Auth'
+  pod 'Firebase/Storage'
+
 
 end
