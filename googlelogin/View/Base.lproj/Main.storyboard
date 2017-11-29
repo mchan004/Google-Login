@@ -19,39 +19,30 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lHG-ob-FWe" customClass="GIDSignInButton">
-                                <rect key="frame" x="112.5" y="318.5" width="150" height="30"/>
+                                <rect key="frame" x="87.5" y="370.5" width="200" height="30"/>
                                 <color key="backgroundColor" red="0.43718595059999998" green="0.45513609599999999" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="150" id="JCH-5r-lWX"/>
+                                    <constraint firstAttribute="width" constant="200" id="JCH-5r-lWX"/>
                                     <constraint firstAttribute="height" constant="30" id="tSN-Id-GQu"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPi-dL-jpF" customClass="FBSDKLoginButton">
-                                <rect key="frame" x="112" y="278.5" width="150" height="30"/>
+                                <rect key="frame" x="87" y="280.5" width="200" height="30"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="150" id="boI-PE-YOc"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="boI-PE-YOc"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
                                 <connections>
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="vwi-GS-CXV"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ris-HX-RWq" customClass="TWTRLogInButton">
-                                <rect key="frame" x="87" y="358.5" width="200" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="go7-uC-rd9"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="WPi-dL-jpF" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Rq-gb-A1t"/>
                             <constraint firstItem="lHG-ob-FWe" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Ejj-Zm-LHc"/>
-                            <constraint firstItem="Ris-HX-RWq" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="MWJ-GO-LCW"/>
-                            <constraint firstItem="Ris-HX-RWq" firstAttribute="top" secondItem="lHG-ob-FWe" secondAttribute="bottom" constant="10" id="PGJ-V4-z29"/>
-                            <constraint firstItem="lHG-ob-FWe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="eDp-Pu-ALY"/>
-                            <constraint firstItem="lHG-ob-FWe" firstAttribute="top" secondItem="WPi-dL-jpF" secondAttribute="bottom" constant="10" id="fRD-H9-adJ"/>
+                            <constraint firstItem="lHG-ob-FWe" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" constant="52" id="eDp-Pu-ALY"/>
+                            <constraint firstItem="lHG-ob-FWe" firstAttribute="top" secondItem="WPi-dL-jpF" secondAttribute="bottom" constant="60" id="fRD-H9-adJ"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

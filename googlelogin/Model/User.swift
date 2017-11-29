@@ -14,9 +14,9 @@ import Foundation
 
 class User: NSObject, NSCoding {
     
-    var name, email, avatar, age: String?
+    var name, email, avatar, age: String!
     
-    init(name: String = "", avatar: String = "", email: String = "", age: String = "") {
+    init(name: String? = "", avatar: String? = "", email: String? = "", age: String? = "") {
         self.name = name
         self.email = email
         self.avatar = avatar

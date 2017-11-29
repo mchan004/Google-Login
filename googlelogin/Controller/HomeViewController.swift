@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import TwitterKit
 
 class HomeViewController: UIViewController {
     
@@ -18,10 +19,11 @@ class HomeViewController: UIViewController {
     @IBOutlet weak var labelAge: UILabel!
     
     let defaults = UserDefaults.standard
+    var user2: User?
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        checkFacebookLogin()
+        user = user2
     }
     
     
@@ -81,38 +83,12 @@ class HomeViewController: UIViewController {
         }
     }
     
-    func checkFacebookLogin() {
-        if FBSDKAccessToken.current() == nil {
-            return
-        }
-        let parameters = ["fields": "email, name, birthday, picture.type(large)"]
-        FBSDKGraphRequest(graphPath: "me", parameters: parameters).start { (connection, result, error) in
-            if error != nil {
-                print(error!)
-                return
-            }
-            guard let data = result as? [String:Any] else { return }
-            
-            let u = User()
-            print(data)
-            if let dt = data["name"] as? String {
-                u.name = dt
-            }
-            
-            if let dt = data["birthday"] as? String {
-                u.age = dt
-            }
-            
-            if let picture = data["picture"] as? NSDictionary, let data = picture["data"] as? NSDictionary, let url = data["url"] as? String {
-                u.avatar = url
-            }
-            self.user = u
-        }
-    }
     
     @IBAction func buttonLogout(_ sender: Any) {
-        let loginManager = FBSDKLoginManager()
-        loginManager.logOut()
+        if FBSDKAccessToken.current() != nil {
+            let loginManager = FBSDKLoginManager()
+            loginManager.logOut()
+        }
         
         defaults.removeObject(forKey: "User")
         performSegue(withIdentifier: "Logout", sender: nil)
